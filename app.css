@@ -25,12 +25,12 @@ main {
 
 #img {
     max-width: 100%;
-    max-height: min-content;
+    /* max-height: max-content ; */
     background-color:hsl(277, 64%, 61%) ;
     mix-blend-mode: multiply;
     margin: 0;
     padding: 0;
-    border-bottom: unset;
+    
 }
 
 span {
@@ -70,21 +70,56 @@ h2 {
 
 
 @media (min-width: 1300px) {
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text image";
 }
 
-    main {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-    
-} 
+.image {
+    grid-area: image;
+    height: auto;
+}
 
+.items {
+    grid-area: text;
+    margin-bottom: 3em;
+}
 
-}    
+.heading {
+    grid-area: header;
+    margin: 1.2em;
+    margin-bottom: 0;
+    font-size: 3rem;   
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-areas: 
+    "header header header "
+    "description description description"
+    "item1 item2 item3";
+}
+
+.description {
+    grid-area: description;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 0;
+    padding: 0;
+}
+
+.item1 {
+    grid-column: 1/2 ;
+}
+
+.item2 {
+    grid-column: 2/3 ;
+}
+
+.item3 {
+    grid-column: 3/4 ;
+}
+}
